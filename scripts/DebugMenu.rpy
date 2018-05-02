@@ -1,4 +1,15 @@
 
+#Enable Debug Mode
+label MenuEnableDebug:
+    $ DebugMode=True
+    call screen preferences
+    
+#Disable Debug Mode
+label MenuDisableDebug:
+    $ DebugMode=False
+    call screen preferences
+    
+#Debug menu when starting the game 
 label DebugMainMenu:
     
     #Option to enable alternate dates
