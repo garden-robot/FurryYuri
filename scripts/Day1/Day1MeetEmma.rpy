@@ -1,14 +1,16 @@
 #Meet Emma, or Darren
 #Also Meet Hudson and Islay
+#Possible to gain +1 Points with Emma and Islay, or -1 Points with Emma and Islay
+#Possible to gain +1 points with Emma
 
-
+#Arrive at Lecture Hall, Meet Islay and Emma
 label Day1_LectureHall:
     scene bg lectureHall
+    #Islay introduction
     narrator             "You arrive at your first class of the day: Intro to Art History. You push through the doors of the lecture hall, heaving from all the running you just did. Luckily, the class hasn’t started yet! Phew!"
     narrator             "You scan the packed lecture hall for an empty seat and sit down in one of the front rows. Right as you sit down you hear a mellow voice through the surrounding speakers:"
     islayUnknownSpeach   "Hewwo? OwO Is dis ting on? Yew guis can heaw me, wight?"
     narrator             "The class nods in unison at the lecturer."
-    
     $ lastSpoke="islay"
     show islay base at center with Dissolve(0.5)
     hide islay
@@ -21,6 +23,7 @@ label Day1_LectureHall:
     islay        "Befowe we begin, I wouwd wike to intwoduce youw TA fow the semestew! (/∀`♥)"
     
     if DateableEmma:
+        #Introduce Emma
         $ lastSpoke="emma"
         show emma base at right with Dissolve(0.5)
         narrator "A familiar face stands up in front of the class- it’s that girl from the party! The one you uh… accidentally spilled beer on when you tripped over that tree stump… But she was really nice about it. And is super adorable. You had no clue she was so much older than you."
@@ -32,8 +35,8 @@ label Day1_LectureHall:
 
         if Morning1Choice_Tough:
             narrator "Emma makes eye contact with you and blushes as she sits back down into her seat.  Everyone seems to be totally stunned by her modest, yet captivating charm. Especially you. I mean, she looked right at you!"
-
     else:
+        #Introduce Darren
         $ lastSpoke="darren"
         show darren base at right with Dissolve(0.5)
         narrator        "Pwofessor Buwgess gestures and out steps Darren. "
@@ -59,12 +62,13 @@ label Day1_LectureHall:
         fakeBobTalk
     jump Day1_MeetHudson
 
+#Meet Hudson
 label Day1_MeetHudson:
     hudsonUnknownSpeach "I can’t believe the the University Alpha is our TA! Can you?"
     hide emma
     hide darren
     narrator      "You turn to meet the eyes of the furson talking to you."
-    
+    #Small talk with Huson about Emma and Player's past
     show hudson base at center with Dissolve(0.5)
     hudsonUnknown "It’s pretty cool! I never thought I’d ever get to talk to her, but now I can just walk into her office whenever!"
     hudsonUnknown "... Oh sorry, I didn’t realize I was talking out loud. I’m Hudson! What’s your name?"
@@ -83,25 +87,20 @@ label Day1_MeetHudson:
     narrator      "Hudson starts to giggle."
     jump Day1_ProfessorInteraction
     
+#Islay calls you out for not listening
 label Day1_ProfessorInteraction:
-    
     hide islay
     show screen islayOwO(";`O´", "left", True)
-    
-    
     islayOwOSpeach "HEY! (;`O´)o " with vpunch
     hide screen islayOwO
     show islay base at left:
         xzoom -1
     narrator    "Pwofessow Buwgess appwoaches."
-    
-    
     #ease Hudson offscreen as Islay moves to center
     show hudson:
         easein 1.0 xalign 2.0
     show islay base at center with move
     hide hudson
-    
     hide islay
     show screen islayOwO("`ε´", "center", True)
     islayOwOSpeach    "And youw nyame is? <( `ε´ )z"
@@ -115,8 +114,8 @@ label Day1_ProfessorInteraction:
         "Admit your fault like a tough kid.":
             jump Day1_ProfessorInteraction_ActTough
     
+#Check your phone (Lose points with Emma and Islay)
 label Day1_ProfessorInteraction_CheckPhone:
-    
     narrator "You quickly and almost motionlessly take your phone out of your pocket and swipe type Venyus of Wiwwendowf into your search engine, Poodle, but no results show up. Oh jeez- how do you spell it?!"
     show screen islayOwO("e_e", "center", True)
     islayOwOSpeach "...That’s what I thought. I’ve got my eye on you [playerName]. e_e"
@@ -133,6 +132,7 @@ label Day1_ProfessorInteraction_CheckPhone:
     narrator "Your face burns red hot in embarrassment as Pwofessow Buwgess continues to lecture."
     jump Day1_ClassEnd
     
+#Admit fault (Gain points with Emma and Islay)
 label Day1_ProfessorInteraction_ActTough:
     narrator "You stand up."
     hide screen islayOwO
@@ -161,6 +161,7 @@ label Day1_ProfessorInteraction_ActTough:
     narrator "As Professow Buwgess continues his lecture, the room is filled with inspired murmurs from your colleagues."
     jump Day1_ClassEnd
     
+#Choice to talk to Emma or go with Hudson to Computer Lab
 label Day1_ClassEnd:
     hide islay with moveoutleft
     narrator "The class comes to a close, and students left and right begin to pack up their belongings."
@@ -170,21 +171,22 @@ label Day1_ClassEnd:
     hudson   "Hey, do you have any other classes today? I have one an hour and a half after this one ends, and I have to bring my computer to the Tech Lab to get it fixed in time. Do you wanna come with?"
     
     if DateableEmma:
+        #If Emma is Dateable
         $ renpy.choice_for_skipping()
         narrator "You don’t have any other classes today, but you were thinking of talking to Emma before you left. Although there is quite a long line of eager people to talk to her as is..."
         menu:
             "Make Hudson wait for you while you go talk to Emma.":
                 jump Day1_MeetEmma
             "Forget it and leave with Hudson.":
-                jump Day1_LeaveWithHudson
+                hudson "Yay! Let’s go!"
+                jump Day1_ComputerLab
     else:
+        #Is emma is not dateable
         player "Sure! Sounds like fun."
         jump Day1_LeaveWithHudson
             
-label Day1_LeaveWithHudson:
-    hudson "Yay! Let’s go!"
-    jump Day1_ComputerLab
-    
+#Make Hudson wait.
+#Talk with Emma after class
 label Day1_MeetEmma:
     hudson   "Alright buddy! I’ll wait by the back door, ok?"
     narrator "Hudson takes off towards to exit, while you approach the daunting line of Emma Admirers."
@@ -192,6 +194,7 @@ label Day1_MeetEmma:
     scene bg lectureHall
     with fade
     
+    #Start talking with Emma
     narrator "Finally, you’ve reached the front. The room is totally empty, except for you and Emma."
     $ lastSpoke="emma"
     show emma base at center with Dissolve(0.5)
@@ -206,17 +209,17 @@ label Day1_MeetEmma:
         "Laugh it off":
             jump Day1_MeetEmma_LaughItOff
     
+#Make a whitty comeback (Gain +1 With Emma)
 label Day1_MeetEmma_WittyComeback:
     player "The University Alpha remembered my name? Wow, I must be important!"
     emma   "Hard to forget someone who spills beer all over your favourite top."
     player "Heh, sorry about that. At least I got the opportunity to talk to you."
-    
-    # Animation for gaining points with emma
     call UpdateRelationPoints((("emma", 1), ))
     emma   "Emma blushes as she picks up her things and begins to walk towards the exit. She then looks at you from over her shoulder as if a beckon to follow." #TODO: Maybe expression
     
     jump Day1_MeetEmma_End
     
+#Laugh it off, and keep talking with Emma
 label Day1_MeetEmma_LaughItOff:
     emma     "Emma picks up her things and begins to walk towards the exit. She then looks at you from over her shoulder as if a beckon to follow."
     python:
@@ -224,28 +227,27 @@ label Day1_MeetEmma_LaughItOff:
         
     jump Day1_MeetEmma_End
     
+#Finish talking with Emma
 label Day1_MeetEmma_End:
     emma   "So uh… Are you an art history major too? Or just filling an elective?"
     player "Who knows! Undeclared, baby!"
     emma   "Yeah, you don’t need to rush it- everyone figures it out at their own pace. I was in Environmental Science before switching over to Art History. You can imagine how my parents reacted to that."
-    
     narrator   "You both step outside"
     scene bg outside
     emmaSpeach "I’ve got some Alpha work to do- my day is packed with meetings. Good luck with everything. If you need any help, you should stop by my office hours sometime. Don’t bring any drinks. "
     narrator   "She winks at you as she turns away towards the university centre."
-    
     if madeWittyComeback:
         narrator "Now it’s your turn to blush."
     else:
         narrator "Your blush really hard. Oh my gosh, she’s cute."
-        
     player   "Ha ha- oh uh yeah totally! No drinks ever. I’ll never look at any kind of drink again. I’ll start a drink embargo. A die-of-dehydration type of drink embargo-"
     narrator "And she’s gone."
+    #Emma Leaves
     hide emma with Dissolve(0.5)
-    
     narrator "You are such a useless lesbian."
     jump Day1_Outside
 
+#Meet up with Hudson again outside
 label Day1_Outside:
     $ lastSpoke="hudson"
     show hudson base at center with Dissolve(0.5)
@@ -254,4 +256,3 @@ label Day1_Outside:
     player   "Oh heh, yeah it uh… It went well. She’s cool. Uh… wanna get going to the computer lab now? "
     hudson   "Sure, let’s go!"
     jump Day1_ComputerLab
-    

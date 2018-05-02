@@ -1,19 +1,23 @@
+#Meet Silvia
+#Possible to gain +1 Points with Silvia
 
+#Arrive at Dorm
 label Day1_Dorm:
     scene bg dorm
     narrator             "You collapse onto your bed, totally and utterly exhausted. You only had one class and barely lifted anything, yet you feel absolutely spent. That hangover probably didn’t help your energy levels either."
     narrator             "But you’re home now, and you totally lucked out in the dorm lottery on getting a single room, so it’s *just* you. Maybe you can grab a snack from your hoard, take a nap, enjoy the quiet…"
+    #Hear music, look for source, see Silvia
     narrator             "Suddenly, a wave pop punk music blasts into your head."
     narrator             "???!!! Where is that coming from?!"
     narrator             "You realize your window is open. Climbing up, you peek out from between your curtains and see a girl leaning against the garage door, probably convinced the area was just isolated enough to hang out."
     narrator             "Your room is situated right on top of your building’s garage, where the custodians take out the garbage and bring in cleaning apparatus every so often. "
-    
     narrator             "And you recognize her! She actually offered you a ride home in her truck when she saw you stumbling around drunk last night at the party, but you declined not wanting to inconvenience her."
     narrator             "You kind of wish you hadn’t. {p}She’s really pretty."
     narrator             "She pulls out a cigarette, sparks it up, and takes a long drag. Judging from the poor music quality, you deduce it’s coming from her phone speaker."
     narrator             "And in an instant, a dank, skunk-esque smell has permeated your whole room. Oh. That’s not a cigarette she’s holding, is it?"
     player               "HEY!" with hpunch
     narrator             "The girl jumps a bit in surprise, turns around, and leers up at you."
+    #Start chatting with Silvia
     $ lastSpoke="silvia"
     show silvia base at center with Dissolve(0.5)
     silviaUnknownSpeach  "Hey there!"
@@ -22,12 +26,12 @@ label Day1_Dorm:
     player               "I mean, they’re pretty good I guess. But, I can hear it from my room, which also now smells a lot like… uh…"
     silviaUnknownSpeach  "Like weed? I’m so sorry dude! I didn’t even consider that could be someone’s room."
     player               "Don’t worry about it! I’ve actually never heard this song before. I like it!"
+    #Silvia offers you join her
     silviaUnknownSpeach  "Wanna come down and listen? I was planning on going over to my other spot on the flip side of the building. You can also have some if you want. I kinda owe you for smelling up your room and all."
     narrator             "You had been planning to relax, but you’d never pass up the opportunity to talk to a cute girl. Especially one this chill."
     player               "Yeah, I’m cool with that. I’ll be right down."
     narrator             "Wait… Hm. This window isn’t that high up. You could jump down from here; that would impress her for sure. But you also aren’t the most coordinated person… "
     narrator             "But then on the other hand, it could be worth the risk…"
-    
     $ renpy.choice_for_skipping()
     narrator "What should you do?"
     menu:
@@ -36,6 +40,7 @@ label Day1_Dorm:
         "Take the safe route and exit through the front door of your building":
             jump Day1_MeetSilvia_ExitNormally
            
+#Jump out of the window to join Silvia (+1 Silvia)
 label Day1_MeetSilvia_JumpOutWindow:
     narrator      "You open the window and shimmy out the bug screen."
     silviaUnknown "Uh… what are you doing?"
@@ -62,6 +67,7 @@ label Day1_MeetSilvia_JumpOutWindow:
     silviaUnknown "DUDE THAT WAS SO RAD?! I didn’t think you were actually going to do it!!!"
     player        "Heh, thanks! Neither did I!"
     
+#Exit the building to join Silvia
 label Day1_MeetSilvia_ExitNormally:
     narrator "You dab"  
     

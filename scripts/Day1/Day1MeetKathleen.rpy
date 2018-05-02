@@ -1,6 +1,10 @@
+#Meet Kathleen or Easton
+#Possible to gain +1 Points with Kathleen
 
+#Arrive at Rec Center
 label Day1_RecCenter:
     scene bg recCenter
+    #Look around Rec Center
     narrator "Exercising is the last thing you’d ever want to do, but you promised your hare-ents that you’d try to make use of the gym membership that was included in your tuition."
     narrator "Since you don’t have any class for the rest of the day, you figured it would be a good time to at least try to get acquainted with the gym."
     narrator "As you enter the Sir Oxington Athletics and Recreation centre (or SOAR as some people call it) you’re a little overwhelmed by how many people there are- people of all ages too, like kids and their parents."
@@ -14,10 +18,11 @@ label Day1_RecCenter:
     narrator "You lie down on your back underneath. You used to play softball in highschool, and your coach would push your team pretty hard in the exercising realm (or so you thought). It shouldn’t be that hard to get back into the ‘swing’ of things. Haha. That was funny."
     narrator "Time to show these gym rats what’s up!"
     
+    #See Easton istead of Kathleen
     if DateableKathleen==False:
         jump Day1_MeetKathleen_MeetEaston
     
-    
+    #Start Lifting weights, Kathleen saves you
     narrator "You lift the bar from the rack, and- OH GOSH, OH HOLY HECK YOU CAN’T HOLD IT IT’S SO HEAVY WH OH GOD IT’S FALLING"
     narrator "IT’S FALLING ON YOU"
     narrator "IT’S ON YOUR THROAT"
@@ -49,7 +54,7 @@ label Day1_RecCenter:
     narrator        "The girl clucks humorously."
     hide kathleen
     show kathleen base at center
-    
+    #Kathleen helps, is introduced
     kathleenUnknown "Do you want me to spot you while you’re here? Maybe give you some training advice? I don’t mind. I have some time right now."
     player          "Uh, yeah! That would be great, actually. I don’t know if you can tell, but I’ve never been in a weight room before."
     kathleenUnknown "Oh, trust me, you hide it *really* well. I’m Kathleen, by the way."
@@ -69,7 +74,9 @@ label Day1_RecCenter:
         "Confess that you have no clue what she just said":
             jump Day1_MeetKathleen_AdmitNoIdea
     
+#If you don't ask for an explination
 label Day1_MeetKathleen_FiguerOutAsGoAlong:
+    #Start Lifting
     narrator "What are sets? What are reps? A set of 8 reps? Are reps like- a multiple of something? You feel like such an idiot as is, you shouldn’t ask her about it. Ok, ok. You can do this."
     narrator "Just…do what she said and try to do it until something hurts? Maybe she’ll tell you when to stop?"
     narrator "You set up the weights and then sit down."
@@ -92,6 +99,7 @@ label Day1_MeetKathleen_FiguerOutAsGoAlong:
     pause 0.2
     narrator "12…"
     narrator "Oh for the love of-"
+    #Finish lifting and Kathleen calls you out
     kathleen "Uh, have you been keeping count?"
     narrator "Your knees nearly slam into your chest as the leg press gets the best of you; the weights slam against the machine with a loud and earth-shattering CLANG."
     narrator "The whole gym is looking at the two of you."
@@ -111,9 +119,10 @@ label Day1_MeetKathleen_FiguerOutAsGoAlong:
     
     jump Day1_Dorm
 
+#Ask Kathleen to explain
 label Day1_MeetKathleen_AdmitNoIdea:
     call UpdateRelationPoints((("kathleen", 1), ))
-    
+    #Kathleen explains, start lifting
     narrator "You set up the weights and prepare to start working out- but then you realize you should probably suck up your anxiety and ask Kathleen what sets and reps are."
     player   "I’m so sorry I keep asking you questions and I don’t mean to be annoying but what are reps and sets?"
     kathleen "...Listen. Don’t ever feel bad or stupid about asking for help. I’d always rather you risk seeming annoying over getting hurt. Also, you’re not annoying."
@@ -137,6 +146,7 @@ label Day1_MeetKathleen_AdmitNoIdea:
     narrator "7… C’mon, c’mon…"
     pause 0.2
     narrator "8!"
+    #Finish lifting
     narrator "You slowly bring your legs forward, letting the weights settle gently against the machine."
     kathleen "Wow, good form! You did it!"
     player   "I couldn’t have done it without you!"
@@ -157,7 +167,7 @@ label Day1_MeetKathleen_AdmitNoIdea:
     
     jump Day1_Dorm
     
-    
+#Meet Easton instead of Kathleen
 label Day1_MeetKathleen_MeetEaston:
     show easton at right with Dissolve(0.5)
     narrator "You grab the bar and begin to lift, but as you do you're hit with the feeling that someone in this room doesn't belong. You lift the bar a little more, and as you do someone across from you starts to stand up. "
@@ -171,7 +181,3 @@ label Day1_MeetKathleen_MeetEaston:
     narrator "You get up and run, trying to get back to the safety of your dorm. Easton watches as you leave."
     
     jump Day1_Dorm
-    
-    
-    
-    
