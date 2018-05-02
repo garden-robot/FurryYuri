@@ -1,6 +1,5 @@
 Version 0.11:
 
-
 -Added persistant data saving
 -Added a Delete Saved Data button to the Perferences menu.
 	-This deletes who you've dated, and the number of dates you've been on
