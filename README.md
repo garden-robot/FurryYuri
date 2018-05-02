@@ -7,7 +7,7 @@ Assume the first version uploaded here is version 0.11
 
 Version 0.11:
 
--Added persistant data saving
+-Added persistant data saving\n
 -Added a Delete Saved Data button to the Perferences menu.
   -This deletes who you've dated, and the number of dates you've been on
 -Made Eve's smaller whisper text its own tag
