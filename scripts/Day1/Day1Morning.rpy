@@ -1,15 +1,16 @@
 #First scene of the game. Wake up, choose clothing for the day
-    
+#Possible to gain +1 with Emma, or Eve, or Kathleen, or Silvia
+
+#Wake up, get read to leave
 label Morning1_Intro:
     scene bg room
     narrator "DING DING DINGA DING DING DINGA DINGA DING DING DINGA DINGA -click-" with vpunch
-    
     player   "Ugh.... headache…. Great…"
-    
     player   ".. ???!"
     player   "Oh dang! It’s 8:20 AM! I have a class in ten minutes!"
     narrator "You get up, and quickly decide what you want to wear."
     
+    #Get Dressed
     $ renpy.choice_for_skipping()
     player   "Oh jeez, gotta rush… What look should I go for?"
     menu:
@@ -22,6 +23,7 @@ label Morning1_Intro:
         "Girly":
             jump Morning1_IntroGirly
     
+#Dress Sporty
 label Morning1_IntroSporty:
     player   "Sporty it is!"
     if DateableKathleen:
@@ -36,6 +38,7 @@ label Morning1_IntroSporty:
         Morning1Choice_Sporty=True
     jump Morning1_IntroChoiceDone
     
+#Dress Indie
 label Morning1_IntroIndie:
     player   "Indie it is!!"
     narrator "You open your dresser and pull out a baggy sweater and a pair of old jeans torn at the knee."
@@ -46,6 +49,7 @@ label Morning1_IntroIndie:
         PointsSilvia+=1
     jump Morning1_IntroChoiceDone
     
+#Dress Though
 label Morning1_IntroTough:
     player   "Tough it is!"
     narrator "You open up your dresser and spot what you want immediately."
@@ -55,6 +59,7 @@ label Morning1_IntroTough:
         PointsEmma+=1
     jump Morning1_IntroChoiceDone
     
+#Dress Girly
 label Morning1_IntroGirly:
     player   "Girly it is then~"
     narrator "You open your dresser and see a cute, knee-length black skirt with white stripes and a blue blouse. You then go to the closet and grab some thigh-highs to complete your outfit. This was written by a transgirl who is trying so hard to be girly but thinks literally everything femme is beautiful and looks good >_>"
@@ -63,6 +68,7 @@ label Morning1_IntroGirly:
         PointsEve+=1
     jump Morning1_IntroChoiceDone
     
+#Leave for class
 label Morning1_IntroChoiceDone:
     narrator "After hastily shoving your laptop in your bag and a quick look in the mirror, a you stumble out of the front door of your dorm room knowing you wouldn’t have enough time for breakfast or basic hygiene. Probably not a good idea considering your mild hangover."
     narrator "You really shouldn’t have gone to that party yesterday- but now that you’re in university, you figured it was important to get out a little more and make some friends. Even if you threw up a little in the process. You still aren’t sure if that was the cheap beer, or the anxiety."

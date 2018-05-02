@@ -12,14 +12,36 @@ init python:
             newValue+=1
         persistent.CompletedDates=newValue
         
+    def GetLoveOrder():
+        output=[]
+        tempList=[PointsEmma+0.3, PointsEve+0.2, PointsKathleen+0.1, PointsSilvia]
         
-label DetermineFinalLover:
+        tempList.sort()
+        for i in tempList[::-1]:
+            c=0
+            for ii in [PointsEmma+0.3, PointsEve+0.2, PointsKathleen+0.1, PointsSilvia]:
+                if i==ii:
+                    if c==0:
+                        output+=["Emma"]
+                    if c==1:
+                        output+=["Eve"]
+                    if c==2:
+                        output+=["Kathleen"]
+                    if c==3:
+                        output+=["Silvia"]
+                c+=1
+                
+        return output
+                
+label GoToEnding:
+    
+    $ lover=GetLoveOrder()[0]
         
-    if PointsEmma>PointsEve and PointsEmma>PointsKathleen and PointsEmma>PointsSilvia:
+    if lover=="Emma":
         jump Ending_Emma_Start
-    if PointsEve>PointsEmma and PointsEve>PointsKathleen and PointsEve>PointsSilvia:
+    if lover=="Eve":
         jump Ending_Eve_Start
-    if PointsKathleen>PointsEmma and PointsKathleen>PointsEve and PointsKathleen>PointsSilvia:
+    if lover=="Kathleen":
         jump Ending_Kathleen_Start
-    if  PointsSilvia>PointsEmma and PointsSilvia>PointsEve and PointsSilvia>PointsKathleen:
+    if lover=="Silvia":
         jump Ending_Silvia_Start

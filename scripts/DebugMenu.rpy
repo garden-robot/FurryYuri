@@ -1,28 +1,35 @@
 
+#Enable Debug Mode
+label MenuEnableDebug:
+    $ DebugMode=True
+    call screen preferences
+    
+#Disable Debug Mode
+label MenuDisableDebug:
+    $ DebugMode=False
+    call screen preferences
+    
+#Debug menu when starting the game 
 label DebugMainMenu:
     
-#    menu:
-#        "Disable Debug Mode":
-#            $ DebugMode=False
-#            jump Morning1_Intro
-#        "Enable Debug Mode":
-#            pass
-    
-    
-    
+    #Option to enable alternate dates
     menu:
         "Enable Alt. Dates":
-            call enableAltDates
+            $ DateableEmma=False
+            $ DateableEve=False
+            $ DateableKathleen=False
+            $ DateableSilvia=False
         "Normal Playthrough":
             pass
-                
+         
+    #Option to jump to a later point in the game
     menu:
         "Start at Begining":
             jump Morning1_Intro
         "Jump to":
             jump debugPickDay
     
-    
+#Pick the day to skip to
 label debugPickDay:
     menu:
         "Day 1":
@@ -31,6 +38,8 @@ label debugPickDay:
             jump debugDay2_jump
             
     return
+    
+#Jump where in day 1
 label debugDay1_jump:
     menu:
         "Lecture Hall (Meet Emma/Islay/Hudson)":
@@ -42,15 +51,7 @@ label debugDay1_jump:
         "Dorm (Meet Silvia)":
             jump Day1_Dorm
     return
-    
-label enableAltDates:
-    
-    $ DateableEmma=False
-    $ DateableEve=False
-    $ DateableKathleen=False
-    $ DateableSilvia=False
-    
-    return 
-            
+      
+#Jump where in day 2      
 label debugDay2_jump:
     return

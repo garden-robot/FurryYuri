@@ -1,4 +1,4 @@
-
+#Hendels when a person talks
 
 #Initiate the player
 label definePlayer:
@@ -98,8 +98,3 @@ init python:
         global lastSpoke
         lastSpoke="islay"
         islaySpeach(what, **kwargs)
-        
-#Make a character bob
-transform speakingBob:
-    linear 0.05 yoffset -10
-    linear 0.05 yoffset 0

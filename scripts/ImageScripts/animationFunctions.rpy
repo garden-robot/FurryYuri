@@ -1,11 +1,17 @@
+#Miscellaneous animation functions/positions used in the game
 
-#Define custom postions
+#Defines custom postions
 init:
     $ leftMiddle = Position(xcenter=0.25, ypos=1.0)
 
 #Pause while the screen shakes
 image pauseForVPunch:
     pause 1.5
+    
+#Make a character bob
+transform speakingBob:
+    linear 0.05 yoffset -10
+    linear 0.05 yoffset 0
     
 # Make a sprite bob up and down at random
 transform fakeBobTalk:

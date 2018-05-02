@@ -71,4 +71,4 @@ label Day1_MeetSilvia_JumpOutWindow:
 label Day1_MeetSilvia_ExitNormally:
     narrator "You dab"  
     
-    jump DetermineFinalLover
+    jump GoToEnding

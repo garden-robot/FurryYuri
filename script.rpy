@@ -1,11 +1,8 @@
 ﻿# The script of the game goes in this file.
 
-
 init python:
+    #Debug Related
     DebugMode=False
-    
-    if DebugMode==False:
-        config.hard_rollback_limit = 0
     
     #Relationship Points
     PointsEmma=0
@@ -27,8 +24,6 @@ init python:
     if persistent.CompletedDates==None:
         persistent.CompletedDates=0
         
-    
-    
     #Character scale variables
     emmaSizeScale=1.75
     eveSizeScale=1.75
@@ -43,37 +38,41 @@ init python:
     Morning1Choice_Tough=False
     Morning1Choice_Girly=False
     
-    
+#The start of the game
 label start:
+    jump Setup_Variables
     
+#Setup variables needed for the game
+label Setup_Variables:
+    
+    #Add Debug Privaleges
+    if DebugMode==False:
+        $config.hard_rollback_limit = 0
+    else:
+        $config.hard_rollback_limit = 999999999999
+        
+    #Define who has been dated. Used to prevent paradoxes when loading an old game
     $ DateableEmma=persistent.EmmaDateable
     $ DateableEve=persistent.EveDateable
     $ DateableKathleen=persistent.KathleenDateable
     $ DateableSilvia=persistent.SilviaDateable
     $ DatesComplete=persistent.CompletedDates
     
-    jump Setup_Variables
+    call definePlayer #Character creation
     
-label Setup_Variables:
-    call definePlayer
+    #More debug stuff
     if DebugMode:
         jump DebugMainMenu
     jump Morning1_Intro
     
-    
+#Deletes Saved date
 label DeleteSave:
-    
+    #Clear who has been dated
     $ persistent.EmmaDateable=True
     $ persistent.EveDateable=True
     $ persistent.KathleenDateable=True
     $ persistent.SilviaDateable=True
     $ persistent.CompletedDates=0
-    
-    jump main_menu_label
-    
-label main_menu_label:
-    
     call screen main_menu
-        
-    #call screen preferences
+    
     

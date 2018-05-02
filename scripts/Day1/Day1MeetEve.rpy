@@ -1,19 +1,20 @@
 #Meet Eve, or Joey
+#Possible to gain +1 Points with Eve
+#Possible to gain +1 Points with Eve, or -1 Points with Eve
 
-
-
+#Arrive at the Computer Lab
 label Day1_ComputerLab:
-    
     scene bg computerLab
     show hudson base at center
-    
     hudson   "I think this is it?"
     narrator "You and Hudson step into a large, open concept room, ordered by rows of desks, computers, and office chairs."
     narrator "The room is dimly lit by a few ceiling lights, and is depressingly windowless as it is located on the bottom most floor. Celing tiles missing You see now why the lab here has earned its title: “The Dungeon”. "
     
+    #Meet Joey instead
     if DateableEve==False:
         jump Day1_MeetEve_MeetJoey
     
+    #Meet Eve
     $ lastSpoke="eve"
     show eve base at right with Dissolve(0.5)
     eveUnknown "Uh, hi..."
@@ -35,15 +36,14 @@ label Day1_ComputerLab:
     show hudson base:
         ease 1.0 xalign 0.0
     
+    #Eve Starts helping Hudson
     narrator   "The small girl trips over herself as she tries to sit into the closest desk chair." #TODO: ask just if this should have a vpunch 
-    
     show eve embarassed at center #TODO: Get this sprite
     show hudson base at left
     eveUnknown "Jeez.... {eveSmall}(Oh goodness I’m so embarrassed I could die).{/eveSmall}"
     narrator   "Hudson pulls out his laptop from his backpack."
     show eve base at center
     hudson     "Here it is! I named her Stella. :)"
-        
     eveUnknown "Hi, Stella. I’m Eve."
     narrator   "Eve fiddles around with some of the buttons on Stella, before turning her over and unscrewing the bottom cover."
     eve        "How long have you had her for?"
@@ -53,6 +53,7 @@ label Day1_ComputerLab:
     eve        "Hm… Everything looks totally normal on the inside. Strange."
     narrator   "Eve carefully screws the bottom back on."
     #TODO: Ask jamie about name Professor
+    #Eve asks professor for help
     eve        "Hey, Professor? Can you take a look at this?" 
     $ renpy.choice_for_skipping()
     narrator   "A person, you assume the professor heading the lab, shuffles over from the other side of the room. As they help Hudson, you and Eve sit off to the side together."
@@ -67,20 +68,23 @@ label Day1_ComputerLab:
         "Wait for Eve to say something":
             jump Day1_MeetEve_Wait
 
+#Try and strike up a converstation (+1 Eve)
 label Day1_MeetEve_Conversation:
     call UpdateRelationPoints((("eve", 1), ))
     player "How has your day been going?"
     eve    "Oh… {eveSmall}(!!!){/eveSmall} It’s been fine. I’ve just been with computers all day. And I like computers."
     player "Yeah? How long have you worked here for?"
-        
     jump Day1_MeetEve_AfterChoice1
 
+#Don't say anything
 label Day1_MeetEve_Wait:
     narrator "The two of you sit there, listening to the Professor’s survey Hudson about his laptop."
+    #Eve starts the conversation
     eve      "Uh… {eveSmall}(what do I do...) Uhm are you… having a nice….)))) oh…….. Are you having a nice day?{/eveSmall}"
     player   "Yeah, I am! It’s my first day of university, actually. How long have you worked here for?"
     jump Day1_MeetEve_AfterChoice1
     
+#You and Eve continue talking
 label Day1_MeetEve_AfterChoice1:
     eve      "I don’t… work here… {eveSmall}(gosh that sounded rude){/eveSmall} I mean, I’m a student volunteer… In my second year…  Today’s my first day in the lab."
     narrator "You glance over at Hudson and the Professor as they call over another person to help them solve the mystery of Hudson’s broken laptop."
@@ -100,6 +104,7 @@ label Day1_MeetEve_AfterChoice1:
         "Let her keep talking.":
             jump Day1_MeetEve_LetHerTalk
             
+#Ask eve to talk louder (Eve -1)
 label Day1_MeetEve_SpeakUp:
     player "You can speak up a little bit more. I don’t bite."
     
@@ -112,10 +117,12 @@ label Day1_MeetEve_SpeakUp:
     
     jump Day1_MeetEve_AfterChoice2
 
+#Let eve keep talking (Eve +1)
 label Day1_MeetEve_LetHerTalk:
     eve      "{eveSmall}(Like, if the world was a computer, then code would be the laws of physics that holds everything together. And it’s a skill that anyone can pick up. It’s cool, I guess.){/eveSmall}"
     player   "Wow."
     eve      "I’m… so sorry…"
+    #You complement Eve
     player   "Please don’t be sorry. I think that’s really incredible. Passion really brings out the beauty in people"
     narrator "Eve holds her tail in her hand, and squeezes it nervously. You think you saw her smile? "
     call UpdateRelationPoints((("eve", 1), ))
@@ -123,6 +130,7 @@ label Day1_MeetEve_LetHerTalk:
     player   "I think that’s so interesting though! I’ve never thought about it that way before. I wish I knew more about it."
     jump Day1_MeetEve_AfterChoice2
 
+#Continuation of the converstation
 label Day1_MeetEve_AfterChoice2:
     narrator            "It seems as if the three people surrounding Hudson’s laptop have now multiplied to six."
     eve                 "Well uhm… If you want to learn more about code I could give you some pointers sometime. If we’re talking in C specifically, I could give you some *. {eveSmall}(haha.){/eveSmall}"
@@ -131,15 +139,17 @@ label Day1_MeetEve_AfterChoice2:
     eve                 "U-Uh {eveSmall}(really?){/eveSmall} Yeah I can message you my availability in the lab, if you want to add me on FurBook."
     narrator            "Eve gingerly grabs your hand and writes her name on your wrist."
     eve                 "Oh s-s-sorry if that was weird, I just-"
+    
+    #Professor yells about not being able to fix the laptop
     $ lastSpoke = "professor"
     show hudson base at left:
         xzoom 1
         randomLookAround
-        
     professorSpeach     "I just don’t- I don’t understand what the darn problem is!" with hpunch
     professorSpeach     "There’s nothing wrong with this laptop! So why won’t it turn on?!"
     narrator            "The four other students that the Professor called over to help are all in  disarray as they frantically google the laptop model manuel on their phones and argue with one another over the possible issue."
     narrator            "Hudson stands by, wagging his tail hopefully."
+    #Eve offers solution
     $ lastSpoke = "eve"
     show hudson base at left
     show eve base at leftMiddle with move
@@ -164,8 +174,7 @@ label Day1_MeetEve_AfterChoice2:
     
     jump Day1_RecCenter
     
-
-
+#Meet Joey instead of Eve
 label Day1_MeetEve_MeetJoey:
     show joey base at right with Dissolve(0.5)
     narrator "You see someone sitting at a desk. He doesn't look familiar, but somehow you know his name is Joey, and he’s a student volunteer here."
