@@ -1,4 +1,4 @@
-
+#Animation for ganing or losing points with someone
 
 #Define side images for gaining/losing points with characters
 image emmaSideHappy = "characters/emma/emma happy.png"

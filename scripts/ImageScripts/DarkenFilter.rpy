@@ -1,3 +1,5 @@
+#Code related to darkening an image
+
 init python:
     #Take info on a sprite and return an image of it darkened
     def darkenSprite(toShowName, spriteType, filterAmount=-0.5):
