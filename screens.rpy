@@ -744,16 +744,18 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
                     
-                vbox:
-                    #style_prefix "check"
-                    label _("Reset Data")
-                    textbutton _("Delete ALL\nSaved Data?") action Jump("DeleteSave")
-                    
-                vbox:
-                    style_prefix "radio"
-                    label _("Debug Mode")
-                    textbutton _("Enable") action Jump("MenuEnableDebug")
-                    textbutton _("Disable") action Jump("MenuDisableDebug")
+                if main_menu:
+
+                    vbox:
+                        #style_prefix "check"
+                        label _("Reset Data")
+                        textbutton _("Delete ALL\nSaved Data?") action Jump("DeleteSave")
+                        
+                    vbox:
+                        style_prefix "radio"
+                        label _("Debug Mode")
+                        textbutton _("Enable") action SetVariable("DebugMode", True)
+                        textbutton _("Disable") action SetVariable("DebugMode", False)
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
