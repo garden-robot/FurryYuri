@@ -8,12 +8,13 @@ label Day1_RecCenter:
     narrator "Exercising is the last thing you’d ever want to do, but you promised your hare-ents that you’d try to make use of the gym membership that was included in your tuition."
     narrator "Since you don’t have any class for the rest of the day, you figured it would be a good time to at least try to get acquainted with the gym."
     narrator "As you enter the Sir Oxington Athletics and Recreation centre (or SOAR as some people call it) you’re a little overwhelmed by how many people there are- people of all ages too, like kids and their parents."
-    narrator "There’s even a group of obnoxious teenage boys from the high school a few blocks over, probably on a lunch break, and they’re having a coffee chugging contest at one of the tables. Wow, that guy can really chug. Oh. He just threw up. "
+    narrator "There’s even a group of obnoxious teenage boys from the high school a few blocks over, probably on a lunch break, and they’re having a coffee chugging contest at one of the tables."
+    narrator "Wow, that guy can really chug.{cps=2} {/cps}Oh.{cps=2} {/cps}He just threw up. "
     narrator "That brings you to notice the fact that there's a fairly large food court here too, which must also be attracting the crowd, and is even beckoning you over with its variety of richly greasy scents."
     narrator "You’re a little thankful you just saw that dumb kid vomit coffee, otherwise you’d probably ditch your gym trip and go eat."
     narrator "After beeping into the entrance with your student ID, you get your gym clothes on in the locker room then hit the weight area. "
     narrator "You’ve never seen so many exercising apparatus in one space before- it’s totally terrifying. The air is thick with sweat and there are buff people left and right, grunting heavily as they pick things up and put things down."
-    narrator "You spot an empty area: it’s that kind of weight thing that has a really long bar, those big black discs on the side, and you lie on your back as you lift it up- like in the movies! "
+    narrator "You spot an empty area. It’s that kind of weight thing that has a really long bar, those big black discs on the side, and you lie on your back as you lift it up- like in the movies!"
     narrator "You pseudo-confidently strut on over and check the weights on it. There are 10 on each side, adding up to a total of 20 pounds. That should be fine to start!"
     narrator "You lie down on your back underneath. You used to play softball in highschool, and your coach would push your team pretty hard in the exercising realm (or so you thought). It shouldn’t be that hard to get back into the ‘swing’ of things. Haha. That was funny."
     narrator "Time to show these gym rats what’s up!"
@@ -28,7 +29,7 @@ label Day1_RecCenter:
     narrator "IT’S ON YOUR THROAT"
     narrator "IS THIS HOW IT ENDS"
     narrator "OH YOU’RE GOING TO SUFFoCAte"
-    narrator "AAaaaAAjpfp[[fje" with hpunch
+    narrator "AAaaaAAjpfp(fje" with hpunch
     narrator "IMGOINGTODIE" with vpunch
     
     $ lastSpoke = "kathleen"
@@ -45,7 +46,7 @@ label Day1_RecCenter:
     narrator        "You finally have the strength to stand up, and thank your hero."
     narrator        "When you see her face right side up you realize you definitely saw her at the party last night. She was at the beer pong table the whole time, totally blowing everyone out of the water."
     player          "T-thank you so much for saving me… It was only 20 pounds! Why did it feel so much heavier?!"
-    kathleenUnknown "The bar is 45 lbs on its own. So that’s a total of 65 lbs."
+    kathleenUnknown "The bar is 45 on its own. So that’s a total of 65 lbs."
     player          "……"
     
     hide kathleen
@@ -125,7 +126,7 @@ label Day1_MeetKathleen_AdmitNoIdea:
     #Kathleen explains, start lifting
     narrator "You set up the weights and prepare to start working out- but then you realize you should probably suck up your anxiety and ask Kathleen what sets and reps are."
     player   "I’m so sorry I keep asking you questions and I don’t mean to be annoying but what are reps and sets?"
-    kathleen "...Listen. Don’t ever feel bad or stupid about asking for help. I’d always rather you risk seeming annoying over getting hurt. Also, you’re not annoying."
+    kathleen "Hey, don’t ever feel bad or stupid about asking for help. I’d always rather you risk seeming annoying over getting hurt. Also, you’re not annoying."
     kathleen "Anyways, reps are just the amount times you repeat an action. So like, to do 8 reps is to lift something 8 times. And 1 set of that is to only do it 8 times once during your workout."
     narrator "Oh, ok! So just do this thing 8 times then!"
     player   "Got it! Thank you!"
@@ -151,18 +152,18 @@ label Day1_MeetKathleen_AdmitNoIdea:
     kathleen "Wow, good form! You did it!"
     player   "I couldn’t have done it without you!"
     narrator "Kathleen’s breath catches in her throat and she looks away nervously. She then takes out her phone to check it."
-    kathleen "Hey, uh I’m really sorry but I forgot that I had to work on an assignment that’s due tomorrow. My calendar just reminded me."
+    kathleen "Hey, uh I’m really sorry but I forgot that I had to turn in an application that’s due by tomorrow. My calendar just reminded me."
     player   "Oh uh, maybe we could work out again sometime?"
     kathleen "Oh- uh yeah. That’d be cool."
-    player   "Could I get your number? Or your Furbook?"
+    player   "Could I get your Furbook?"
     kathleen "Sure."
     narrator "You run over to your bag, tear off a small piece of paper from a notebook, fish for a pen, then run back with both in hand."
     narrator "Kathleen tentatively writes her number on the scrap, and then hands it back to you."
     narrator "Why is she on edge all of a sudden?"
     kathleen "Yeah so, I’ll catch you around maybe."
-    player   "Totally! For the love of Dog- I can’t be trusted in here on my own."
+    player   "Totally! I mean, for the love of Dog- I can’t be trusted in here on my own."
     kathleen "Haha, yeah see ya."
-    narrator "She gives you a quick wave before picking up her duffle bag and heading out."
+    narrator "She gives you a quick smile and wave before picking up her duffle bag and heading out."
     narrator "Now, you could keep exercising, but frankly that moment where you almost died has traumatized you a bit. Maybe that’s enough for today."
     
     jump Day1_Dorm

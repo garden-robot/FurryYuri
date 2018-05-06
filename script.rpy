@@ -33,10 +33,10 @@ init python:
     hudsonSizeScale=1.75
     
     #What the player picked on Day 1
-    Morning1Choice_Sporty=False
-    Morning1Choice_Indie=False
-    Morning1Choice_Tough=False
-    Morning1Choice_Girly=False
+    Morning1Choice_Honesty=False
+    Morning1Choice_Flaire=False
+    Morning1Choice_Guts=False
+    Morning1Choice_Compassion=False
     
 #The start of the game
 label start:

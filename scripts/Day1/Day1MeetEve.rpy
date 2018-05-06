@@ -8,7 +8,8 @@ label Day1_ComputerLab:
     show hudson base at center
     hudson   "I think this is it?"
     narrator "You and Hudson step into a large, open concept room, ordered by rows of desks, computers, and office chairs."
-    narrator "The room is dimly lit by a few ceiling lights, and is depressingly windowless as it is located on the bottom most floor. Celing tiles missing You see now why the lab here has earned its title: “The Dungeon”. "
+    narrator "The room is dimly lit by a few ceiling lights, and is depressingly windowless as it is located on the basement floor. The room smells musty and all around you can see some dark holes in the ceiling where tiles probably should be."
+    narrator "You see now why the lab here has earned its title: “The Dungeon”. "
     
     #Meet Joey instead
     if DateableEve==False:
@@ -43,7 +44,7 @@ label Day1_ComputerLab:
     eveUnknown "Jeez.... {eveSmall}(Oh goodness I’m so embarrassed I could die).{/eveSmall}"
     narrator   "Hudson pulls out his laptop from his backpack."
     show eve base at center
-    hudson     "Here it is! I named her Stella. :)"
+    hudson     "Here she is! I named her Stella. :)"
     eveUnknown "Hi, Stella. I’m Eve."
     narrator   "Eve fiddles around with some of the buttons on Stella, before turning her over and unscrewing the bottom cover."
     eve        "How long have you had her for?"
@@ -65,7 +66,7 @@ label Day1_ComputerLab:
     menu:
         "Try and strike up a conversation":
             jump Day1_MeetEve_Conversation
-        "Wait for Eve to say something":
+        "Wait for her to say something":
             jump Day1_MeetEve_Wait
 
 #Try and strike up a converstation (+1 Eve)
@@ -90,7 +91,7 @@ label Day1_MeetEve_AfterChoice1:
     narrator "You glance over at Hudson and the Professor as they call over another person to help them solve the mystery of Hudson’s broken laptop."
     player   "That’s exciting! What program are you in?"
     eve      "Computer science. How about you?"
-    player   "Haha, whoops. I guess that should have been obvious. I’m undeclared, for now. Hopefully."
+    player   "Haha, whoops. I guess that should have been obvious. I’m undeclared for now."
     eve      "Oh, that’s cool…"
     narrator "Silence."
     player   "What do you like most about computers?"
@@ -120,14 +121,14 @@ label Day1_MeetEve_SpeakUp:
 #Let eve keep talking (Eve +1)
 label Day1_MeetEve_LetHerTalk:
     eve      "{eveSmall}(Like, if the world was a computer, then code would be the laws of physics that holds everything together. And it’s a skill that anyone can pick up. It’s cool, I guess.){/eveSmall}"
-    player   "Wow."
+    player   "Wow, really?"
     eve      "I’m… so sorry…"
     #You complement Eve
-    player   "Please don’t be sorry. I think that’s really incredible. Passion really brings out the beauty in people"
-    narrator "Eve holds her tail in her hand, and squeezes it nervously. You think you saw her smile? "
+    player   "Please don’t be sorry! I think that’s super cool. Passion really brings out the beauty in people."
+    narrator "Eve holds her tail in her hands, and squeezes it nervously. You think you saw her smile?"
     call UpdateRelationPoints((("eve", 1), ))
     
-    player   "I think that’s so interesting though! I’ve never thought about it that way before. I wish I knew more about it."
+    player   "I think it’s interesting though! I’ve never thought about computers that way before. I wish I knew more about them."
     jump Day1_MeetEve_AfterChoice2
 
 #Continuation of the converstation
@@ -155,7 +156,7 @@ label Day1_MeetEve_AfterChoice2:
     show eve base at leftMiddle with move
     show hudson base at left:
         xzoom -1
-    narrator            "Eve turns away from you and walks over to the mess of people."
+    narrator            "Eve’s expression changes as if she has an idea, then turns away from you and walks over to the mess of people."
     eve                 "Uhm Hudson… So when your laptop was working, did it charge properly?"
     hudson              "Charge? What do you mean? :o"
     eve                 "{eveSmall}(what?){/eveSmall}... You know like… you plug in your laptop into the wall when it’s low on battery?"
@@ -164,8 +165,8 @@ label Day1_MeetEve_AfterChoice2:
     narrator            "The group of students stare blankly at Hudson, who only offers a confused smile in return."
     eve                 "So that cord that came with your laptop? Use it to plug this into a wall and it should work."
     hudson              "Ah ok! Thanks for fixing Stella, Eve! I really appreciate it. :D"
-    narrator            "Hudson gives Eve a warm hug, who only cautiously accepts."
-    narrator            "The students, clearly irritated, scatter and return to their respective desks. The Professor follows suit, the life having left their eyes."
+    narrator            "Hudson gives Eve a warm hug, thought she only cautiously accepts it."
+    narrator            "The students, clearly irritated, scatter and return to their respective desks. Professor Jamie follows suit, the life having left their eyes." #TODO: Ask Jamie
     hudson              "Alright, well, I gotta get to class now. I’ll see you all later!"
     player              "And I’ve gotta go to the Rec Center, so I’ll walk with you. Bye, Eve! Thanks for the help!"
     show  eve:
