@@ -27,8 +27,6 @@ label Morning1_Intro:
 label Morning1_IntroHonesty:
     if DateableKathleen:
         narrator "You open your dresser and pull out some sports leggings and a T shirt."
-        python:
-            PointsKathleen+=1
     else:
         narrator "You open your dresser and find... nothing. You thought you owned some sports leggings and a T shirt, but aparently not?"
         player   "I guess it's a plain shirt and jeans for me..."
@@ -43,7 +41,6 @@ label Morning1_IntroFlair:
     narrator "You have always passed it off as style, but in actuality you tore them after crashing your bike into a dumpster.{p}No one has to know that though."
     python:
         Morning1Choice_Flair=True
-        PointsSilvia+=1
     jump Morning1_IntroChoiceDone
     
 #Dress Though
@@ -54,7 +51,6 @@ label Morning1_IntroGuts:
     
     python:
         Morning1Choice_Guts=True
-        PointsEmma+=1
     jump Morning1_IntroChoiceDone
     
 #Dress Girly
@@ -62,13 +58,12 @@ label Morning1_IntroCompassion:
     narrator "You open your dresser and see a cute little mint dress that you bought last summer. "
     python:
         Morning1Choice_Compassion=True
-        PointsEve+=1
     jump Morning1_IntroChoiceDone
     
 #Leave for class
 label Morning1_IntroChoiceDone:
     narrator "After hastily shoving your laptop in your bag and a quick look in the mirror, a you stumble out of the front door of your dorm room knowing you wouldn’t have enough time for breakfast or basic hygiene. Probably not a good idea considering your mild hangover."
-    narrator "You really shouldn’t have gone to that party yesterday- but now that you’re in university, you figured it was important to get out a little more and make some friends."
+    narrator "You really shouldn’t have gone to that party yesterday but now that you’re in university, you figured it was important to get out a little more and make some friends."
     narrator "Even if you threw up a little in the process. You still aren’t sure if that was the cheap beer, or the anxiety."
     narrator "But you did meet some nice people- and some cute girls… Maybe you’ll run into some of them today?"
     jump Day1_LectureHall

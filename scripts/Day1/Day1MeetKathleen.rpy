@@ -12,7 +12,7 @@ label Day1_RecCenter:
     narrator "Wow, that guy can really chug.{cps=2} {/cps}Oh.{cps=2} {/cps}He just threw up. "
     narrator "That brings you to notice the fact that there's a fairly large food court here too, which must also be attracting the crowd, and is even beckoning you over with its variety of richly greasy scents."
     narrator "You’re a little thankful you just saw that dumb kid vomit coffee, otherwise you’d probably ditch your gym trip and go eat."
-    narrator "After beeping into the entrance with your student ID, you get your gym clothes on in the locker room then hit the weight area. "
+    narrator "After beeping into the entrance with your student ID, you realize you forgot to pack gym clothes, so you just decide to hit the weight room as you are. "
     narrator "You’ve never seen so many exercising apparatus in one space before- it’s totally terrifying. The air is thick with sweat and there are buff people left and right, grunting heavily as they pick things up and put things down."
     narrator "You spot an empty area. It’s that kind of weight thing that has a really long bar, those big black discs on the side, and you lie on your back as you lift it up- like in the movies!"
     narrator "You pseudo-confidently strut on over and check the weights on it. There are 10 on each side, adding up to a total of 20 pounds. That should be fine to start!"
@@ -58,11 +58,15 @@ label Day1_RecCenter:
     #Kathleen helps, is introduced
     kathleenUnknown "Do you want me to spot you while you’re here? Maybe give you some training advice? I don’t mind. I have some time right now."
     player          "Uh, yeah! That would be great, actually. I don’t know if you can tell, but I’ve never been in a weight room before."
-    kathleenUnknown "Oh, trust me, you hide it *really* well. I’m Kathleen, by the way."
+    if Morning1Choice_Honesty:
+        call UpdateRelationPoints((("kathleen", 1), ))
+        kathleen "Well you definitely dress like you know your way around one! I thought you were a regular when I first saw you saunter up to the bench press. I’m Kathleen, by the way."
+    else:
+        kathleenUnknown "Oh, trust me, you hide it really well. I’m Kathleen, by the way."
     player          "I’m [playerName]"
     kathleen        "Alright, [playerName]! What are you looking to train?"
     player          "Uh… like… muscles… and stuff..."
-    kathleen        "Nice, that gives me a *lot* to work with."
+    kathleen        "Nice, that gives me a {i}lot{\i} to work with."
     narrator        "She walks over to a different machine, and you follow closely behind, still wheezing a bit."
     narrator        "This one also has those disc weights hanging on the side, but is smaller and has a flat surface with foot prints on it."
     kathleen        "I’m guessing you’re looking to do a balanced work out, so let’s start with your legs. This thing here is called a leg press. It’ll mostly work out your quads."
@@ -124,9 +128,9 @@ label Day1_MeetKathleen_FiguerOutAsGoAlong:
 label Day1_MeetKathleen_AdmitNoIdea:
     call UpdateRelationPoints((("kathleen", 1), ))
     #Kathleen explains, start lifting
-    narrator "You set up the weights and prepare to start working out- but then you realize you should probably suck up your anxiety and ask Kathleen what sets and reps are."
-    player   "I’m so sorry I keep asking you questions and I don’t mean to be annoying but what are reps and sets?"
-    kathleen "Hey, don’t ever feel bad or stupid about asking for help. I’d always rather you risk seeming annoying over getting hurt. Also, you’re not annoying."
+    narrator "You set up the weights and prepare to start working out but then you realize you should probably suck up your anxiety and ask Kathleen what sets and reps are."
+    player   "I’m so sorry to waste more of your time and I don’t mean to be annoying but what are reps and sets? "
+    kathleen "Hey, don’t ever feel bad about asking for help. I’d always rather you risk seeming annoying over getting hurt. Also, you’re not annoying."
     kathleen "Anyways, reps are just the amount times you repeat an action. So like, to do 8 reps is to lift something 8 times. And 1 set of that is to only do it 8 times once during your workout."
     narrator "Oh, ok! So just do this thing 8 times then!"
     player   "Got it! Thank you!"

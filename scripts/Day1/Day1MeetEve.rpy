@@ -39,7 +39,7 @@ label Day1_ComputerLab:
     
     #Eve Starts helping Hudson
     narrator   "The small girl trips over herself as she tries to sit into the closest desk chair." #TODO: ask just if this should have a vpunch 
-    show eve embarassed at center #TODO: Get this sprite
+    show eve embarrassed at center #TODO: Get this sprite
     show hudson base at left
     eveUnknown "Jeez.... {eveSmall}(Oh goodness I’m so embarrassed I could die).{/eveSmall}"
     narrator   "Hudson pulls out his laptop from his backpack."
@@ -62,6 +62,13 @@ label Day1_ComputerLab:
         xzoom 1
         pause 3.0
         fakeBobTalk
+        
+    if Morning1Choice_Compassion:
+        eve      "Uh… I like your dress… It’s nice..."
+        player   "Aw, Thanks! I like your sweater!"
+        call UpdateRelationPoints((("eve", 1), ))
+        eve      "Thank you… {eveSmall}(It’s my favourite…){/eveSmall}"
+        narrator "Silence."
         
     menu:
         "Try and strike up a conversation":
@@ -93,7 +100,10 @@ label Day1_MeetEve_AfterChoice1:
     eve      "Computer science. How about you?"
     player   "Haha, whoops. I guess that should have been obvious. I’m undeclared for now."
     eve      "Oh, that’s cool…"
-    narrator "Silence."
+    if Morning1Choice_Compassion:
+        narrator "Silence, again."
+    else:
+        narrator "Silence."
     player   "What do you like most about computers?"
     eve      "..Oh, uh, a lot of things… {eveSmall}(I guess I like how straightforward everything is, and how you can essentially like, bend reality? I mean I can just imagine anything and bring it to life on a computer. I don’t know…){/eveSmall}"
     
@@ -166,7 +176,7 @@ label Day1_MeetEve_AfterChoice2:
     eve                 "So that cord that came with your laptop? Use it to plug this into a wall and it should work."
     hudson              "Ah ok! Thanks for fixing Stella, Eve! I really appreciate it. :D"
     narrator            "Hudson gives Eve a warm hug, thought she only cautiously accepts it."
-    narrator            "The students, clearly irritated, scatter and return to their respective desks. Professor Jamie follows suit, the life having left their eyes." #TODO: Ask Jamie
+    narrator            "The students, clearly irritated, scatter and return to their respective desks. The Professor follows suit, the life having left their eyes." #TODO: Ask Jamie
     hudson              "Alright, well, I gotta get to class now. I’ll see you all later!"
     player              "And I’ve gotta go to the Rec Center, so I’ll walk with you. Bye, Eve! Thanks for the help!"
     show  eve:

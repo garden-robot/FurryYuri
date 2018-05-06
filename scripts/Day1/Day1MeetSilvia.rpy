@@ -5,7 +5,7 @@
 label Day1_Dorm:
     scene bg dorm
     narrator             "You collapse onto your bed, totally and utterly exhausted. You only had one class and barely lifted anything, yet you feel absolutely spent. That hangover probably didn’t help your energy levels either."
-    narrator             "But you’re home now, and you totally lucked out in the dorm lottery on getting a single room, so it’s *just* you. Maybe you can grab a snack from your hoard, take a nap, enjoy the quiet…"
+    narrator             "But you’re home now, and you totally lucked out in the dorm lottery on getting a single room, so it’s {i}just{/i} you. Maybe you can grab a snack from your hoard, take a nap, enjoy the quiet…"
     #Hear music, look for source, see Silvia
     narrator             "Suddenly, a wave pop punk music blasts into your head."
     narrator             "???!!! Where is that coming from?!"
@@ -66,6 +66,12 @@ label Day1_MeetSilvia_JumpOutWindow:
     
     silviaUnknown "DUDE THAT WAS SO RAD?! I didn’t think you were actually going to do it!!!"
     player        "Heh, thanks! Neither did I!"
+    
+    silviaUnknown "I’m Silvia by the way."
+    player        "Nice to meet you Silvia, I’m [playerName]"
+    narrator      "You shake her hand jokingly and she laughs in response."
+    silvia        "You wanna go to that other spot?"
+    player        "Yeah, sure!"
     
 #Exit the building to join Silvia
 label Day1_MeetSilvia_ExitNormally:

@@ -3,7 +3,7 @@
 init python:    
     #Get the amount of time to pause between blinks
     def getPauseTime(trans, st, at):
-        waitTimes=[0.2, 1.5, 2.0, 2.3, 2.7, 3.3, 4.0]
+        waitTimes=[0.2, 1.5, 2.7, 3.3, 4.0, 6.0, 6.5, 7.2, 7.5, 7.7, 8.0]
         trans.pauseFor=waitTimes[renpy.random.randint(0, len(waitTimes)-1)]
         return None
     

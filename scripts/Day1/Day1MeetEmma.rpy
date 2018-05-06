@@ -65,8 +65,9 @@ label Day1_MeetHudson:
     hudsonUnknownSpeach "I can’t believe the the University Alpha is our TA! Can you?"
     hide emma
     hide darren
-    narrator      "You turn to meet the eyes of the furson talking to you."
+    narrator      "Startled, you turn to meet the eyes of the furson talking to you."
     #Small talk with Huson about Emma and Player's past
+    $ lastSpoke = "hudson"
     show hudson base at center with Dissolve(0.5)
     hudsonUnknown "It’s pretty cool! I never thought I’d ever get to talk to her, but now I can just walk into her office whenever!"
     hudsonUnknown "... Oh sorry, I didn’t realize I was talking out loud. I’m Hudson! What’s your name?"
@@ -79,17 +80,20 @@ label Day1_MeetHudson:
     narrator      "Hudson’s ears perk up."
     hudson        "Woah, really?! That’s so cool! Don’t you have like, human parents or something? :o"
     narrator      "The Pwofessow continues to lecture, so you lower your voice a bit."
-    player        "Maybe? I was found on someone’s doorstep when I was a baby. Was eventually adopted by a family of hares."
-    hudson        "Oh gosh, I’m sorry if I’m being pushy or inappropriate. I’ve just never seen a human before."
+    player        "Maybe?  If I do, I don’t know them. I was found on someone’s doorstep when I was a baby. Was eventually adopted by a family of hares."
+    hudson        " Oh gosh, I’m only now realising how pushy I’m being. I just didn’t even know humans were real. I thought they were all legend!"
     player        "Again, I get it a lot! It’s a pretty good icebreaker. Or ice bweakew as I should say."
+    hide islay
+    show screen islayOwO(";`3´", "left", True)
     narrator      "Hudson starts to giggle."
     jump Day1_ProfessorInteraction
     
 #Islay calls you out for not listening
 label Day1_ProfessorInteraction:
-    hide islay
+    hide screen islayOwO
     show screen islayOwO(";`O´", "left", True)
     islayOwOSpeach "HEY! (;`O´)o " with vpunch
+    
     hide screen islayOwO
     show islay base at left:
         xzoom -1
@@ -149,7 +153,7 @@ label Day1_ProfessorInteraction_ActTough:
     show screen islayOwO("☆ω☆*", "center", True)
     islayOwOSpeach    "Wow, such passion. (☆ω☆*)I'm excited to see youw gwowth, [playerName]. Aww is fowgiven."
     
-    hudsonSpeach   "Wow, that was soooo inspiring. You make me wanna be a better student, [playerName]! And it’s only the first day of classes! :D"
+    hudsonSpeach   "Wow, that was soooo inspiring. You make me wanna be a better student, [playerName]! And it’s only the first day of class!"
     hide screen islayOwO
     show islay base at center:
         xzoom -1
@@ -232,7 +236,7 @@ label Day1_MeetEmma_End:
     narrator "And she’s gone."
     #Emma Leaves
     hide emma with Dissolve(0.5)
-    narrator "You are such a useless lesbian."
+    narrator "Wow. Did you really just say that?"
     jump Day1_Outside
 
 #Meet up with Hudson again outside
@@ -240,7 +244,10 @@ label Day1_Outside:
     $ lastSpoke="hudson"
     show hudson base at center with Dissolve(0.5)
     narrator "Hudson approaches you, wagging his tail excitedly."
-    hudson   "How’d it go! :D"
-    player   "Oh heh, yeah she’s cool. Uh… wanna get going to the computer lab now?"
+    hudson   "How was she?"
+    narrator "You stutter as you begin to talk, still a little overwhelmed."
+    narrator "Oh heh, uh yeah she was really cool. Totally different one on one than what I expected from when she spoke in front of the class."
+    hudson "Well as University Alpha, she has an image to uphold! I couldn’t imagine all that pressure! But I would really like to ask her for pointers so I can be UA someday… We should go to her office hours together sometime."
+    player   "I’d be down. Speaking of going places, wanna head to the Tech Lab?"
     hudson   "Sure, let’s go!"
     jump Day1_ComputerLab
