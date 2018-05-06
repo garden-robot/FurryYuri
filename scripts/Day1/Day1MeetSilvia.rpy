@@ -69,8 +69,9 @@ label Day1_MeetSilvia_JumpOutWindow:
     
     silviaUnknown "I’m Silvia by the way."
     player        "Nice to meet you Silvia, I’m [playerName]"
-    narrator      "You shake her hand jokingly, and she laughs in response."
+    narrator      "You shake her hand jokingly and she laughs in response."
     silvia        "You wanna go to that other spot?"
+    player        "Yeah, sure!"
     
 #Exit the building to join Silvia
 label Day1_MeetSilvia_ExitNormally:
