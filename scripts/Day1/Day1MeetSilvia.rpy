@@ -12,7 +12,7 @@ label Day1_Dorm:
     narrator             "You realize your window is open. Climbing up, you peek out from between your curtains and see a girl leaning against the garage door, probably convinced the area was just isolated enough to hang out."
     narrator             "Your room is situated right on top of your building’s garage, where the custodians take out the garbage and bring in cleaning apparatus every so often. "
     narrator             "And you recognize her! She actually offered you a ride home in her truck when she saw you stumbling around drunk last night at the party, but you declined not wanting to inconvenience her."
-    narrator             "You kind of wish you hadn’t. {p}She’s really pretty."
+    narrator             "You kind of wish you hadn’t. {w}She’s really pretty."
     narrator             "She pulls out a cigarette, sparks it up, and takes a long drag. Judging from the poor music quality, you deduce it’s coming from her phone speaker."
     narrator             "And in an instant, a dank, skunk-esque smell has permeated your whole room. Oh. That’s not a cigarette she’s holding, is it?"
     player               "HEY!" with hpunch
@@ -27,7 +27,7 @@ label Day1_Dorm:
     silviaUnknownSpeach  "Like weed? I’m so sorry dude! I didn’t even consider that could be someone’s room."
     player               "Don’t worry about it! I’ve actually never heard this song before. I like it!"
     #Silvia offers you join her
-    silviaUnknownSpeach  "Wanna come down and listen? I was planning on going over to my other spot on the flip side of the building. You can also have some if you want. I kinda owe you for smelling up your room and all."
+    silviaUnknownSpeach  "Wanna come down and listen? We can go over to my other spot on the flip side of the building. You can also have some if you want. I kinda owe you for smelling up your room and all."
     narrator             "You had been planning to relax, but you’d never pass up the opportunity to talk to a cute girl. Especially one this chill."
     player               "Yeah, I’m cool with that. I’ll be right down."
     narrator             "Wait… Hm. This window isn’t that high up. You could jump down from here; that would impress her for sure. But you also aren’t the most coordinated person… "
@@ -51,7 +51,7 @@ label Day1_MeetSilvia_JumpOutWindow:
     narrator      "You feel a skinny ledge beneath you- a row of bricks jutting out from the building. Ok. Ok yeah you can do this."
     narrator      "You bring the rest of your body out the window, holding your weight firmly against the thin ledge. It looks like you’re about 8 feet up in the air."
     narrator      "You’re like what- 5’5? This is only a little over 2 feet taller than you! It’s fine. This is totally fine."
-    narrator      "Now jump.{p}Uh.{p}Ok now JUMP."
+    narrator      "Now jump.{w} Uh.{w} Ok now JUMP."
     narrator      "Alright. You’re kind of paralyzed in fear now. If you wait any longer, you’re going to look like a complete dumbass."
     narrator      "Ok let’s do it{cps=3}... F{/cps}OR THE CUTE GIRL!"
     player        "Er. Yeah so. Here I come!"
@@ -63,12 +63,12 @@ label Day1_MeetSilvia_JumpOutWindow:
     narrator      "You pull yourself up, cool as a cucumber."
     
     call UpdateRelationPoints((("silvia", 1), ))
-        
+    
     silviaUnknown "DUDE THAT WAS SO RAD?! I didn’t think you were actually going to do it!!!"
     player        "Heh, thanks! Neither did I!"
     
 #Exit the building to join Silvia
 label Day1_MeetSilvia_ExitNormally:
-    narrator "You dab"  
+    narrator       "You dab"  
     
-    jump DetermineFinalLover
+    jump GoToEnding

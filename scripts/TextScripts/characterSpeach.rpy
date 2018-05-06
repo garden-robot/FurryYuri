@@ -4,7 +4,7 @@
 label definePlayer:
     $ playerName="Jude"
     if DebugMode==False:
-        $ playerName = renpy.input("What is your name, Magical Boi?")
+        $ playerName = renpy.input("What is your name, Magical Boi?", playerName, None, {}, 10)
     define player = Character("[playerName]")
     return
 

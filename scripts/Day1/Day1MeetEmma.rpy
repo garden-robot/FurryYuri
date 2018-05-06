@@ -8,7 +8,7 @@ label Day1_LectureHall:
     scene bg lectureHall
     #Islay introduction
     narrator             "You arrive at your first class of the day: Intro to Art History. You push through the doors of the lecture hall, heaving from all the running you just did. Luckily, the class hasn’t started yet! Phew!"
-    narrator             "You scan the packed lecture hall for an empty seat and sit down in one of the front rows. Right as you sit down you hear a mellow voice through the surrounding speakers:"
+    narrator             "You scan the packed lecture hall for an empty seat and sit down in one of the front rows. You suddenly hear a shrill voice echo through the surrounding speakers."
     islayUnknownSpeach   "Hewwo? OwO Is dis ting on? Yew guis can heaw me, wight?"
     narrator             "The class nods in unison at the lecturer."
     $ lastSpoke="islay"
@@ -26,32 +26,30 @@ label Day1_LectureHall:
         #Introduce Emma
         $ lastSpoke="emma"
         show emma base at right with Dissolve(0.5)
-        narrator "A familiar face stands up in front of the class- it’s that girl from the party! The one you uh… accidentally spilled beer on when you tripped over that tree stump… But she was really nice about it. And is super adorable. You had no clue she was so much older than you."
-        emma     "Hewwo- I mean uh… Hello everyone! I’m Emma! I’ll be assisting Pwo-Professor Burgess this year. If anyone needs assistance in studying,  proofreading for essays, or you just wanna talk, I’ve posted my office hours on the course webpage."
-        emma     "This class is actually the class that inspired me switch over to an Art History major to begin with. I hope you all really enjoy it! Thank you!"
+        narrator "A familiar face stands up in front of the class- it’s that girl from the party! The one you uh… accidentally spilled beer on when you tripped over that tree stump…"
+        narrator "But she was really nice about it. And is super adorable. You had no clue she was so much older than you."
+        emma     "Hewwo- I mean uh… Hello everyone! I’m Emma! I’ll be assisting Professor Burgess this year. If anyone needs assistance in studying,  proofreading for essays, or you just wanna talk, I’ve posted my office hours on the course webpage."
+        emma     "This is actually the class  that inspired me switch over to an Art History major to begin with. I hope you all really enjoy it! Thank you!"
         narrator "The class claps intensely as Emma blushes and sits down back into her seat. Everyone seems to be totally stunned by her modest, yet captivating charm. You included."
         show emma base:
             easein 1.0 xalign 2.0
-
-        if Morning1Choice_Tough:
-            narrator "Emma makes eye contact with you and blushes as she sits back down into her seat.  Everyone seems to be totally stunned by her modest, yet captivating charm. Especially you. I mean, she looked right at you!"
     else:
         #Introduce Darren
         $ lastSpoke="darren"
         show darren base at right with Dissolve(0.5)
         narrator        "Pwofessor Buwgess gestures and out steps Darren. "
-        narrator        "Darren is 5 feet, and 3 inches. He’s the university alpha. He’s a volunteer at a homeless shelter, and he enjoys cooking with loved ones."
+        narrator        "Darren is 5 feet 8 inches. He’s the university alpha. He’s a volunteer at a homeless shelter, and he enjoys cooking with loved ones."
         narrator        "You’re not sure how you know all of this but somehow you do. It all floods into your head and it wont stop."
-        narrator        "5’3”, alpha, volunteer, likes to cook. The words repeat in your head. 5’3”, alpha, volunteer, likes to cook."
+        narrator        "5’8”, university alpha, volunteer, likes to cook. The words repeat in your head. 5’8”, university alpha, volunteer, likes to cook."
         narrator        "Suddenly, you blink and the world returns to normal, like you just woke up from a dream."
         darren          "-office hours are mondays, at 1:30 to 2:30, I look forward to seeing you all there!"
         player          "(Did I just zone out?)"
         hide islay
         show screen islayOwO("OuO", "center") 
-        islayOwOSpeach     "Thank you Dawwen, pwofessionyal as awways! OuO"
+        islayOwOSpeach  "Thank you Dawwen, pwofessionyal as awways! OuO"
         hide screen islayOwO
         show islay base at center 
-        darren          "Darren smiles and begins to walk out of the classroom."
+        darren          "Darren smiles charmingly and sits back down in his seat as the class applauds."
         
         #Ease Darren offscreen
         show darren base:
@@ -73,7 +71,7 @@ label Day1_MeetHudson:
     hudsonUnknown "It’s pretty cool! I never thought I’d ever get to talk to her, but now I can just walk into her office whenever!"
     hudsonUnknown "... Oh sorry, I didn’t realize I was talking out loud. I’m Hudson! What’s your name?"
     player        "I’m [playerName]. Nice to meet you!"
-    hudson        "Hi there, [playerName]! It’s nice to meet you too! ..."
+    hudson        "Hi there, [playerName]! It’s nice to meet you too!"
     narrator      "Hudson pawses."
     hudson        "Not to be inappropriate- I really don’t want to be offensive when I ask this but… are you… a human?"
     narrator      "You nod."
@@ -82,7 +80,7 @@ label Day1_MeetHudson:
     hudson        "Woah, really?! That’s so cool! Don’t you have like, human parents or something? :o"
     narrator      "The Pwofessow continues to lecture, so you lower your voice a bit."
     player        "Maybe? I was found on someone’s doorstep when I was a baby. Was eventually adopted by a family of hares."
-    hudson        "Oh gosh, I’m sorry if I’m being pushy or inappropriate. I’ve just never seen a human before. :x"
+    hudson        "Oh gosh, I’m sorry if I’m being pushy or inappropriate. I’ve just never seen a human before."
     player        "Again, I get it a lot! It’s a pretty good icebreaker. Or ice bweakew as I should say."
     narrator      "Hudson starts to giggle."
     jump Day1_ProfessorInteraction
@@ -111,7 +109,7 @@ label Day1_ProfessorInteraction:
     menu:
         "Sneakily search the answer on your phone.":
             jump Day1_ProfessorInteraction_CheckPhone
-        "Admit your fault like a tough kid.":
+        "Proudly admit your fault.":
             jump Day1_ProfessorInteraction_ActTough
     
 #Check your phone (Lose points with Emma and Islay)
@@ -144,15 +142,12 @@ label Day1_ProfessorInteraction_ActTough:
     
     if DateableEmma:
         narrator "You see Emma in the corner of your eye, seemingly impressed with your courage and honesty."
-    
-    hide islay
-    show screen islayOwO("☆ω☆*", "center", True)
-    islayOwOSpeach    "Wow, such passion. (☆ω☆*)I'm excited to see youw gwowth, [playerName]. Aww is fowgiven."
-    
-    if DateableEmma:
         call UpdateRelationPoints((("islay", 1), ("emma", 1)))
     else:
         call UpdateRelationPoints((("islay", 1),))
+    hide islay
+    show screen islayOwO("☆ω☆*", "center", True)
+    islayOwOSpeach    "Wow, such passion. (☆ω☆*)I'm excited to see youw gwowth, [playerName]. Aww is fowgiven."
     
     hudsonSpeach   "Wow, that was soooo inspiring. You make me wanna be a better student, [playerName]! And it’s only the first day of classes! :D"
     hide screen islayOwO
@@ -169,17 +164,10 @@ label Day1_ClassEnd:
     $ lastSpoke="hudson"
     show hudson base at center with Dissolve(0.5)
     hudson   "Hey, do you have any other classes today? I have one an hour and a half after this one ends, and I have to bring my computer to the Tech Lab to get it fixed in time. Do you wanna come with?"
-    
     if DateableEmma:
-        #If Emma is Dateable
-        $ renpy.choice_for_skipping()
-        narrator "You don’t have any other classes today, but you were thinking of talking to Emma before you left. Although there is quite a long line of eager people to talk to her as is..."
-        menu:
-            "Make Hudson wait for you while you go talk to Emma.":
-                jump Day1_MeetEmma
-            "Forget it and leave with Hudson.":
-                hudson "Yay! Let’s go!"
-                jump Day1_ComputerLab
+        #If Emma is Dateable meet with her
+        player "I think I’m going to go talk to Emma first if that’s ok?"
+        jump Day1_MeetEmma
     else:
         #Is emma is not dateable
         player "Sure! Sounds like fun."
@@ -188,7 +176,7 @@ label Day1_ClassEnd:
 #Make Hudson wait.
 #Talk with Emma after class
 label Day1_MeetEmma:
-    hudson   "Alright buddy! I’ll wait by the back door, ok?"
+    hudson   "Alright buddy! I’ll wait outside!"
     narrator "Hudson takes off towards to exit, while you approach the daunting line of Emma Admirers."
     hide hudson with Dissolve(0.5)
     scene bg lectureHall
@@ -232,9 +220,9 @@ label Day1_MeetEmma_End:
     emma   "So uh… Are you an art history major too? Or just filling an elective?"
     player "Who knows! Undeclared, baby!"
     emma   "Yeah, you don’t need to rush it- everyone figures it out at their own pace. I was in Environmental Science before switching over to Art History. You can imagine how my parents reacted to that."
-    narrator   "You both step outside"
     scene bg outside
-    emmaSpeach "I’ve got some Alpha work to do- my day is packed with meetings. Good luck with everything. If you need any help, you should stop by my office hours sometime. Don’t bring any drinks. "
+    narrator   "You both step outside"
+    emmaSpeach "Anyways, I’ve got some Alpha work to do- my day is packed with meetings. Good luck with everything. If you need any help, you should stop by my office hours sometime. Don’t bring any drinks. "
     narrator   "She winks at you as she turns away towards the university centre."
     if madeWittyComeback:
         narrator "Now it’s your turn to blush."
@@ -253,6 +241,6 @@ label Day1_Outside:
     show hudson base at center with Dissolve(0.5)
     narrator "Hudson approaches you, wagging his tail excitedly."
     hudson   "How’d it go! :D"
-    player   "Oh heh, yeah it uh… It went well. She’s cool. Uh… wanna get going to the computer lab now? "
+    player   "Oh heh, yeah she’s cool. Uh… wanna get going to the computer lab now?"
     hudson   "Sure, let’s go!"
     jump Day1_ComputerLab
