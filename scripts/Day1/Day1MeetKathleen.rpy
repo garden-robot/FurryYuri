@@ -9,13 +9,13 @@ label Day1_RecCenter:
     narrator "Since you don’t have any class for the rest of the day, you figured it would be a good time to at least try to get acquainted with the gym."
     narrator "As you enter the Sir Oxington Athletics and Recreation centre (or SOAR as some people call it) you’re a little overwhelmed by how many people there are- people of all ages too, like kids and their parents."
     narrator "There’s even a group of obnoxious teenage boys from the high school a few blocks over, probably on a lunch break, and they’re having a coffee chugging contest at one of the tables."
-    narrator "Wow, that guy can really chug.{cps=2} {/cps}Oh.{cps=2} {/cps}He just threw up. "
+    narrator "Wow, that guy can really chug. {w}Oh.{cps=2} {/cps}He just threw up. "
     narrator "That brings you to notice the fact that there's a fairly large food court here too, which must also be attracting the crowd, and is even beckoning you over with its variety of richly greasy scents."
     narrator "You’re a little thankful you just saw that dumb kid vomit coffee, otherwise you’d probably ditch your gym trip and go eat."
     narrator "After beeping into the entrance with your student ID, you realize you forgot to pack gym clothes, so you just decide to hit the weight room as you are. "
     narrator "You’ve never seen so many exercising apparatus in one space before- it’s totally terrifying. The air is thick with sweat and there are buff people left and right, grunting heavily as they pick things up and put things down."
     narrator "You spot an empty area. It’s that kind of weight thing that has a really long bar, those big black discs on the side, and you lie on your back as you lift it up- like in the movies!"
-    narrator "You pseudo-confidently strut on over and check the weights on it. There are 10 on each side, adding up to a total of 20 pounds. That should be fine to start!"
+    narrator "Pseudo-confidently strutting over, you check the weights on it and see that there are 10 on each side, adding up to a total of 20 pounds. That should be fine to start!"
     narrator "You lie down on your back underneath. You used to play softball in highschool, and your coach would push your team pretty hard in the exercising realm (or so you thought). It shouldn’t be that hard to get back into the ‘swing’ of things. Haha. That was funny."
     narrator "Time to show these gym rats what’s up!"
     
@@ -81,6 +81,7 @@ label Day1_RecCenter:
     
 #If you don't ask for an explination
 label Day1_MeetKathleen_FiguerOutAsGoAlong:
+    $ Kathleen_Choice_Day1AskExplination = False
     #Start Lifting
     narrator "What are sets? What are reps? A set of 8 reps? Are reps like- a multiple of something? You feel like such an idiot as is, you shouldn’t ask her about it. Ok, ok. You can do this."
     narrator "Just…do what she said and try to do it until something hurts? Maybe she’ll tell you when to stop?"
@@ -126,6 +127,7 @@ label Day1_MeetKathleen_FiguerOutAsGoAlong:
 
 #Ask Kathleen to explain
 label Day1_MeetKathleen_AdmitNoIdea:
+    $ Kathleen_Choice_Day1AskExplination = True
     call UpdateRelationPoints((("kathleen", 1), ))
     #Kathleen explains, start lifting
     narrator "You set up the weights and prepare to start working out but then you realize you should probably suck up your anxiety and ask Kathleen what sets and reps are."

@@ -14,13 +14,13 @@ label Day1_LectureHall:
     $ lastSpoke="islay"
     show islay base at center with Dissolve(0.5)
     hide islay
-    show screen islayOwO("^w^", "center")
+    $ makeIslayOwO("^w^")
+    show image islayOwO at center
     islayUnknownSpeach "Hewwo, cwass ^w^ I'm Pwofessow Buwgess and I wiww be guiding you aww awong thwough the histowy of awt >w<" 
-    
-    hide screen islayOwO
+    hide islayOwO
     show islay base at center
-    islay        "Fwom the mystewious cave paintings of Wascaux to the Campbeww soup cans of Andy Wawhow, you wiww come to undewstand the wowwd awound you in an uwtimatewy nyew and exciting way."
-    islay        "Befowe we begin, I wouwd wike to intwoduce youw TA fow the semestew! (/∀`♥)"
+    islay        "Fwom the mystewious cave paintings of Wascaux to the Campbewl soup cans of Andy Wawhow, you wiww come to undewstand the wowwd awound you in an uwtimatewy nyew and exciting way."
+    islay        "Befowe we begin, I wouwd wike to intwoduce youw TA fow the semestew! (ノ･ᗜ･)ノ♥"
     
     if DateableEmma:
         #Introduce Emma
@@ -29,7 +29,7 @@ label Day1_LectureHall:
         narrator "A familiar face stands up in front of the class- it’s that girl from the party! The one you uh… accidentally spilled beer on when you tripped over that tree stump…"
         narrator "But she was really nice about it. And is super adorable. You had no clue she was so much older than you."
         emma     "Hewwo- I mean uh… Hello everyone! I’m Emma! I’ll be assisting Professor Burgess this year. If anyone needs assistance in studying,  proofreading for essays, or you just wanna talk, I’ve posted my office hours on the course webpage."
-        emma     "This is actually the class  that inspired me switch over to an Art History major to begin with. I hope you all really enjoy it! Thank you!"
+        emma     "This is actually the class  that inspired me to switch over to an Art History major to begin with. I hope you all really enjoy it! Thank you!"
         narrator "The class claps intensely as Emma blushes and sits down back into her seat. Everyone seems to be totally stunned by her modest, yet captivating charm. You included."
         show emma base:
             easein 1.0 xalign 2.0
@@ -45,9 +45,10 @@ label Day1_LectureHall:
         darren          "-office hours are mondays, at 1:30 to 2:30, I look forward to seeing you all there!"
         player          "(Did I just zone out?)"
         hide islay
-        show screen islayOwO("OuO", "center") 
+        $ makeIslayOwO("OuO")
+        show image islayOwO at center
         islayOwOSpeach  "Thank you Dawwen, pwofessionyal as awways! OuO"
-        hide screen islayOwO
+        hide islayOwO
         show islay base at center 
         darren          "Darren smiles charmingly and sits back down in his seat as the class applauds."
         
@@ -62,7 +63,7 @@ label Day1_LectureHall:
 
 #Meet Hudson
 label Day1_MeetHudson:
-    hudsonUnknownSpeach "I can’t believe the the University Alpha is our TA! Can you?"
+    hudsonUnknownSpeach "I can’t believe the the student body Alpha is our TA! Can you?"
     hide emma
     hide darren
     narrator      "Startled, you turn to meet the eyes of the furson talking to you."
@@ -84,29 +85,27 @@ label Day1_MeetHudson:
     hudson        " Oh gosh, I’m only now realising how pushy I’m being. I just didn’t even know humans were real. I thought they were all legend!"
     player        "Again, I get it a lot! It’s a pretty good icebreaker. Or ice bweakew as I should say."
     hide islay
-    show screen islayOwO(";`3´", "left", True)
+    $ makeIslayOwO(";`3´", True)
+    show image islayOwO at left
     narrator      "Hudson starts to giggle."
     jump Day1_ProfessorInteraction
     
 #Islay calls you out for not listening
 label Day1_ProfessorInteraction:
-    hide screen islayOwO
-    show screen islayOwO(";`O´", "left", True)
-    islayOwOSpeach "HEY! (;`O´)o " with vpunch
-    
-    hide screen islayOwO
-    show islay base at left:
-        xzoom -1
+    $ lastSpoke="islay"
+    $ makeIslayOwO(";`O´", True)
+    show image islayOwO at left
+    islayOwOSpeach "HEY! (;`O´)/ " with vpunch
     narrator    "Pwofessow Buwgess appwoaches."
+    $ makeIslayOwO("`ε´", True)
+    show image islayOwO at left
     #ease Hudson offscreen as Islay moves to center
     show hudson:
         easein 1.0 xalign 2.0
-    show islay base at center with move
+    show image islayOwO at center with move
     hide hudson
-    hide islay
-    show screen islayOwO("`ε´", "center", True)
     islayOwOSpeach    "And youw nyame is? <( `ε´ )z"
-    player   "Oh uh- it’s [playerName]"
+    player            "Oh uh- it’s [playerName]"
     
     $ renpy.choice_for_skipping()
     islayOwOSpeach    "Ok [playerName], since you wewe paying such cwose attention, what is the appwoximate yeaw that the Venyus of Wiwwendowf was scuwpted?"
@@ -119,14 +118,15 @@ label Day1_ProfessorInteraction:
 #Check your phone (Lose points with Emma and Islay)
 label Day1_ProfessorInteraction_CheckPhone:
     narrator "You quickly and almost motionlessly take your phone out of your pocket and swipe type Venyus of Wiwwendowf into your search engine, Poodle, but no results show up. Oh jeez- how do you spell it?!"
-    show screen islayOwO("e_e", "center", True)
+    $ makeIslayOwO("e_e", True)
+    show image islayOwO at center
     islayOwOSpeach "...That’s what I thought. I’ve got my eye on you [playerName]. e_e"
-    hide screen islayOwO
+    hide islayOwO
     show islay base at center:
         xzoom -1
     if DateableEmma:
-        narrator "In your peripherals, you notice a dejected and slightly annoyed Emma sigh and continue to type on her laptop."
         call UpdateRelationPoints((("emma", -1), ("islay", -1)))
+        narrator "In your peripherals, you notice a dejected and slightly annoyed Emma sigh and continue to type on her laptop."
     else:
         call UpdateRelationPoints((("islay", -1), ))
     
@@ -137,7 +137,7 @@ label Day1_ProfessorInteraction_CheckPhone:
 #Admit fault (Gain points with Emma and Islay)
 label Day1_ProfessorInteraction_ActTough:
     narrator "You stand up."
-    hide screen islayOwO
+    hide islayOwO
     show islay base at center:
         xzoom -1
     player   "You know what, I’m a first year. This is my first art history class ever. I’m going to learn a lot of information, and not all of it is going to stick in the beginning."
@@ -145,16 +145,16 @@ label Day1_ProfessorInteraction_ActTough:
     narrator "You sit back down again."
     
     if DateableEmma:
-        narrator "You see Emma in the corner of your eye, seemingly impressed with your courage and honesty."
         call UpdateRelationPoints((("islay", 1), ("emma", 1)))
+        narrator "You see Emma in the corner of your eye, seemingly impressed with your courage and honesty."
     else:
         call UpdateRelationPoints((("islay", 1),))
     hide islay
-    show screen islayOwO("☆ω☆*", "center", True)
+    $ makeIslayOwO("☆ω☆", True)
+    show image islayOwO at center
     islayOwOSpeach    "Wow, such passion. (☆ω☆*)I'm excited to see youw gwowth, [playerName]. Aww is fowgiven."
-    
-    hudsonSpeach   "Wow, that was soooo inspiring. You make me wanna be a better student, [playerName]! And it’s only the first day of class!"
-    hide screen islayOwO
+    hudsonSpeach      "Wow, that was soooo inspiring. You make me wanna be a better student, [playerName]! And it’s only the first day of class!"
+    hide islayOwO
     show islay base at center:
         xzoom -1
     narrator "As Professow Buwgess continues his lecture, the room is filled with inspired murmurs from your colleagues."
@@ -162,6 +162,8 @@ label Day1_ProfessorInteraction_ActTough:
     
 #Choice to talk to Emma or go with Hudson to Computer Lab
 label Day1_ClassEnd:
+    show islay base at center:
+        xzoom 1
     hide islay with moveoutleft
     narrator "The class comes to a close, and students left and right begin to pack up their belongings."
     
@@ -216,7 +218,6 @@ label Day1_MeetEmma_LaughItOff:
     emma     "Emma picks up her things and begins to walk towards the exit. She then looks at you from over her shoulder as if a beckon to follow."
     python:
         madeWittyComeback=False
-        
     jump Day1_MeetEmma_End
     
 #Finish talking with Emma
@@ -241,7 +242,7 @@ label Day1_MeetEmma_End:
 
 #Meet up with Hudson again outside
 label Day1_Outside:
-    $ lastSpoke="hudson"
+    $ lastSpoke = "hudson"
     show hudson base at center with Dissolve(0.5)
     narrator "Hudson approaches you, wagging his tail excitedly."
     hudson   "How was she?"

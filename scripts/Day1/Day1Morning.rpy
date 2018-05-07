@@ -5,6 +5,8 @@
 label Morning1_Intro:
     scene bg room
     narrator "DING DING DINGA DINGA DING DING DINGA DINGA DING DING DINGA DINGA -click-" with vpunch
+    
+    
     player   "Ugh.... headache…. Great…"
     player   ".. ???!"
     player   "Oh jeez! It’s 8:20 AM! I have a class in ten minutes!"
