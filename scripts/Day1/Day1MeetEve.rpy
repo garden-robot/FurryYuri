@@ -39,12 +39,14 @@ label Day1_ComputerLab:
     
     #Eve Starts helping Hudson
     narrator   "The small girl trips over herself as she tries to sit into the closest desk chair." #TODO: ask just if this should have a vpunch 
-    show eve embarrassed at center #TODO: Get this sprite
+    show eve embarrassed at center:
+        zoom eveSizeScale
     show hudson base at left
     eveUnknown "Jeez.... {eveSmall}(Oh goodness I’m so embarrassed I could die).{/eveSmall}"
     narrator   "Hudson pulls out his laptop from his backpack."
+    hide eve
     show eve base at center
-    hudson     "Here she is! I named her Stella. :)"
+    hudson     "Here she is! I named my laptop Stella. :)"
     eveUnknown "Hi, Stella. I’m Eve."
     narrator   "Eve fiddles around with some of the buttons on Stella, before turning her over and unscrewing the bottom cover."
     eve        "How long have you had her for?"
