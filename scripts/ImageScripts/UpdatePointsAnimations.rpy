@@ -21,11 +21,27 @@ init python:
     kathleenSideAngry = "characters/kathleen/kathleen angry.png"
     silviaSideHappy = "characters/silvia/silvia happy.png"
     silviaSideAngry = "characters/silvia/silvia angry.png"
-
-    islaySideHappy = "characters/islay/islay happy.png"
-    islaySideAngry = "characters/islay/islay angry.png"
     hudsonSideHappy = "characters/hudson/hudson happy.png"
     hudsonSideAngry = "characters/hudson/hudson angry.png"
+
+    tempText=Text("{color=#000000}{size=15}^ω^{/size}{/color}")
+    textSize=tempText.size()
+    textPos=(40-int(textSize[0]/2), 58-int(textSize[1]/2))
+    islaySideHappy = LiveComposite(
+            (123, 352),
+            (0, 0), "characters/islay/islay faceless.png",
+            textPos, tempText,
+            )
+    
+    tempText=Text("{color=#000000}{size=17}`ε´{/size}{/color}")
+    textSize=tempText.size()
+    textPos=(40-int(textSize[0]/2), 58-int(textSize[1]/2))
+    islaySideAngry = LiveComposite(
+            (123, 352),
+            (0, 0), "characters/islay/islay faceless.png",
+            textPos, tempText,
+            )
+    
     
     sideHappyImages0={}
     sideHappyImages0["emma"]=emmaSideHappy
@@ -321,7 +337,6 @@ transform LoseLikePointsAnimation(x, y):
         repeat
         
     time 3.0
-    
     linear 1.0 xalign x yalign y
     
     
